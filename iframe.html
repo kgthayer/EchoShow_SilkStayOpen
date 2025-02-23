@@ -29,9 +29,10 @@
                 display: none;
             }
             [data-state=paused]{
-                background-color: rgba(205, 20, 20, 0.02);
+                background-color: rgba(205, 20, 20, 1);
                 background-image: url("https://kgthayer.github.io/EchoShow_SilkStayOpen/NoSleep.png");
-                background-blend-mode: lighten;
+                background-repeat: no-repeat;
+                background-blend-mode: overlay;
             }
             [data-state=paused] div::after{
                 content: "Click to keep page open";
