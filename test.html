@@ -1,0 +1,10 @@
+<script defer src="https://dagammla.gitlab.io/keep-silk-open/keep.js"></script>
+<h1>Test Page</h1>
+<p><b id="rep" style="color: red;">TAP THE SCREEN</b></p> 
+<p>The Audio Element will be invisible on your page</p>
+
+<script>
+document.addEventListener("click", () => document.getElementById("rep").outerHTML = 'This page should now stay open')
+var SilkVisualMode = true
+var AlwaysUseSilk = true
+</script>
