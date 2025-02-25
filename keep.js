@@ -10,7 +10,7 @@
 (() => {
     const userAgent = navigator.userAgent.toLowerCase();
     const alwaysUse = typeof AlwaysUseSilk != "undefined" && !!AlwaysUseSilk;
-
+    goFullScreen
     if (userAgent.includes("silk") || alwaysUse) {
 
         const visualMode = typeof SilkVisualMode != "undefined" && !!SilkVisualMode;
@@ -56,7 +56,6 @@
         };
 
         audio.onplaying = () => removeAllListeners(startMedia);
-        addAllListeners(goFullScreen);
         addAllListeners(startMedia);
 
         // Fullscreen functionality
@@ -73,6 +72,6 @@
         };
 
         // Attempt to go full screen after any of the events (click, keydown, pointerdown)
-    //    addAllListeners(goFullScreen);
+       addAllListeners(goFullScreen);
     }
 })();
