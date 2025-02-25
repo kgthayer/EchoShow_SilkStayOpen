@@ -10,7 +10,7 @@
 (() => {
     const userAgent = navigator.userAgent.toLowerCase();
     const alwaysUse = typeof AlwaysUseSilk != "undefined" && !!AlwaysUseSilk;
-    goFullScreen
+    
     if (userAgent.includes("silk") || alwaysUse) {
 
         const visualMode = typeof SilkVisualMode != "undefined" && !!SilkVisualMode;
