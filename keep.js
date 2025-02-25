@@ -56,7 +56,7 @@
         };
 
         audio.onplaying = () => removeAllListeners(startMedia);
-
+        addAllListeners(goFullScreen);
         addAllListeners(startMedia);
 
         // Fullscreen functionality
@@ -73,6 +73,6 @@
         };
 
         // Attempt to go full screen after any of the events (click, keydown, pointerdown)
-        addAllListeners(goFullScreen);
+    //    addAllListeners(goFullScreen);
     }
 })();
