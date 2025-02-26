@@ -83,7 +83,6 @@
                 audio.src = nowMedia()
                 audio.currentTime = 0
                 audio.play()
-                openFullscreen()
             }
 
             audio.onended = reload
@@ -91,6 +90,7 @@
             const startMedia = () => {
                 reload()
                 audio.muted = false
+                openFullscreen()
             }
 
             audio.onplaying = () => removeAllListeners(startMedia)
