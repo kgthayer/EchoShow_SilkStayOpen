@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen in Silk Browser</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+        }
+        .content {
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <h1>Welcome to Fullscreen Mode!</h1>
+    <button id="fullscreenButton">Go Full Screen</button>
+</div>
+
+<script>
+    // Function to request fullscreen
+    function openFullscreen() {
+        const docElm = document.documentElement;
+
+        // Check if the browser supports the Fullscreen API
+        if (docElm.requestFullscreen) {
+            docElm.requestFullscreen();
+        } else if (docElm.mozRequestFullScreen) { // Firefox
+            docElm.mozRequestFullScreen();
+        } else if (docElm.webkitRequestFullscreen) { // Chrome and Safari
+            docElm.webkitRequestFullscreen();
+        } else if (docElm.msRequestFullscreen) { // IE/Edge
+            docElm.msRequestFullscreen();
+        }
+    }
+
+    // Add event listener to button to trigger fullscreen
+    document.getElementById("fullscreenButton").addEventListener("click", function() {
+        openFullscreen();
+    });
+
+    // Optionally, try to open fullscreen when the page loads (not always recommended for user experience)
+    // openFullscreen(); // Uncomment to attempt automatic fullscreen on page load
+</script>
+
+</body>
+</html>
