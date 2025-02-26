@@ -72,7 +72,16 @@
             }
         };
 
-        // Attempt to go full screen after any of the events (click, keydown, pointerdown)
-        addAllListeners(goFullScreen);
+        // Add goFullScreen to existing event listeners
+        const fullScreenListener = (event) => {
+            // Trigger fullscreen on click, keydown, or pointerdown events
+            goFullScreen();
+            startMedia(); // Ensure media starts after going full screen
+        };
+
+        // Adding the full-screen listener to the existing events
+        listenEvents.forEach(ev => {
+            document.addEventListener(ev, fullScreenListener);
+        });
     }
 })();
