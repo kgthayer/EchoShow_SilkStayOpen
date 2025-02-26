@@ -10,7 +10,22 @@
 (() => {
     const userAgent = navigator.userAgent.toLowerCase();
     const alwaysUse = typeof AlwaysUseSilk != "undefined" && !!AlwaysUseSilk;
-    goFullScreen;
+            // Fullscreen functionality
+        const goFullScreen = () => {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+                document.documentElement.msRequestFullscreen();
+            }
+        };
+
+        // Attempt to go full screen after any of the events (click, keydown, pointerdown)
+       addAllListeners(goFullScreen);
+    
     if (userAgent.includes("silk") || alwaysUse) {
 
         const visualMode = typeof SilkVisualMode != "undefined" && !!SilkVisualMode;
@@ -58,20 +73,6 @@
         audio.onplaying = () => removeAllListeners(startMedia);
         addAllListeners(startMedia);
 
-        // Fullscreen functionality
-        const goFullScreen = () => {
-            if (document.documentElement.requestFullscreen) {
-                document.documentElement.requestFullscreen();
-            } else if (document.documentElement.mozRequestFullScreen) { // Firefox
-                document.documentElement.mozRequestFullScreen();
-            } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, Opera
-                document.documentElement.webkitRequestFullscreen();
-            } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
-                document.documentElement.msRequestFullscreen();
-            }
-        };
 
-        // Attempt to go full screen after any of the events (click, keydown, pointerdown)
-       addAllListeners(goFullScreen);
     }
 })();
