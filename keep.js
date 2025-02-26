@@ -8,6 +8,7 @@
 * 2022 by DaGammla
 */
 (() => {
+    console.log("Start");
     const userAgent = navigator.userAgent.toLowerCase();
     const alwaysUse = typeof AlwaysUseSilk != "undefined" && !!AlwaysUseSilk;
             // Fullscreen functionality
