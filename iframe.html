@@ -88,9 +88,9 @@
             audio.onended = reload
 
             const startMedia = () => {
+                openFullscreen()
                 reload()
                 audio.muted = false
-                openFullscreen()
             }
 
             audio.onplaying = () => removeAllListeners(startMedia)
