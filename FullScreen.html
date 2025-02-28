@@ -46,11 +46,13 @@
     document.addEventListener("click", function() {
        // window.open("https://dakboard.com/display/uuid/67ba2156-11c809-2d6a-69b2a271");
         console.log("Step 1"); 
-        openFullscreen();
+        setTimeout(openFullscreen, 5000);
+        //openFullscreen();
         console.log("Step 2"); 
         window.location.replace("https://dakboard.com/display/uuid/67ba2156-11c809-2d6a-69b2a271");
         console.log("Step 3"); 
-        openFullscreen();
+        setTimeout(openFullscreen, 5000);
+        //openFullscreen();
     });
 
     // Optionally, try to open fullscreen when the page loads (not always recommended for user experience)
