@@ -38,13 +38,17 @@
             docElm.webkitRequestFullscreen();
         } else if (docElm.msRequestFullscreen) { // IE/Edge
             docElm.msRequestFullscreen();
-        }
-        
+        }    
+    }
+    
+    function addDelay() {
+        console.log("Delay");
     }
 
     // Add event listener to button to trigger fullscreen
     document.addEventListener("click", function() {
        // window.open("https://dakboard.com/display/uuid/67ba2156-11c809-2d6a-69b2a271");
+        setTimeout(addDelay,5000);
         console.log("Step 1"); 
         setTimeout(openFullscreen, 5000);
         //openFullscreen();
