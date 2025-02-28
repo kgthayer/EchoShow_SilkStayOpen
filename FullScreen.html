@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fullscreen in Silk Browser</title>
+    <title>Fullscreen Dakboard Launcher</title>
     <style>
         body {
             margin: 0;
@@ -21,8 +21,7 @@
 <body>
 
 <div class="content">
-    <h1>Welcome to Fullscreen Mode!</h1>
-    <button id="fullscreenButton">Go Full Screen</button>
+    <h1>Click anywhere to open Dakboard!</h1>
 </div>
 
 <script>
@@ -44,7 +43,7 @@
     }
 
     // Add event listener to button to trigger fullscreen
-    document.getElementById("fullscreenButton").addEventListener("click", function() {
+    document.addEventListener("click", function() {
        // window.open("https://dakboard.com/display/uuid/67ba2156-11c809-2d6a-69b2a271");
         console.log("Step 1"); 
         openFullscreen();
