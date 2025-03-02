@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoo Cams Grid</title>
+    <style>
+        body {
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            height: 100vh;
+            gap: 5px;
+            background-color: black;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Row 1 -->
+    <iframe src="https://zssd-penguin.secureplayer.camzonecdn.com/v1.3/CamzoneStreamPlayer?iframe=yes&channel=zssd-penguin"></iframe>
+    <iframe src="https://zssd-koala.secureplayer.camzonecdn.com/v1.3/CamzoneStreamPlayer?iframe=yes&channel=zssd-koala"></iframe>
+
+
+    <!-- Row 2 (Duplicate cams or other ones if available) -->
+
+    <iframe src="https://zssd-hippo.secureplayer.camzonecdn.com/v1.3/CamzoneStreamPlayer?iframe=yes&channel=zssd-hippo"></iframe>
+    <iframe src="https://zssd-panda2024.secureplayer.camzonecdn.com/v1.3/CamzoneStreamPlayer?iframe=yes&channel=zssd-panda2024"></iframe>
+
+</body>
+</html>
