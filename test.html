@@ -1,11 +1,10 @@
 /* "https://dakboard.com/display/uuid/67ba2156-11c809-2d6a-69b2a271" */
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fullscreen Window with Iframe Loader on Click</title>
+  <title>Fullscreen Window with Iframe Loader after Click</title>
   <style>
     /* Ensure the body and HTML elements take up the entire screen */
     html, body {
@@ -39,7 +38,6 @@
       height: 100%;
       background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
       z-index: 999;
-      display: none;
     }
   </style>
 </head>
@@ -53,9 +51,9 @@
   <div id="overlay"></div>
 
   <script>
-    // Wait for 5 seconds before entering fullscreen mode
-    setTimeout(() => {
-      // Enter fullscreen mode for the entire window
+    // Event listener to load iframe after the user clicks anywhere
+    document.getElementById('overlay').addEventListener('click', function() {
+      // Enter fullscreen mode for the entire window after the user clicks
       if (document.documentElement.requestFullscreen) {
         document.documentElement.requestFullscreen();
       } else if (document.documentElement.mozRequestFullScreen) { // Firefox
@@ -66,21 +64,16 @@
         document.documentElement.msRequestFullscreen();
       }
 
-      // Show the overlay to wait for a click
-      const overlay = document.getElementById('overlay');
-      overlay.style.display = 'block';
-
-    }, 5000); // 5000 milliseconds (5 seconds)
-
-    // Event listener to load iframe when user clicks anywhere
-    document.getElementById('overlay').addEventListener('click', function() {
-      // Hide overlay when clicked
+      // Hide overlay after the click
       const overlay = document.getElementById('overlay');
       overlay.style.display = 'none';
 
-      // Show iframe container after the click
-      const iframeContainer = document.getElementById('iframe-container');
-      iframeContainer.style.display = 'block';
+      // Wait for 5 seconds after the click before showing the iframe
+      setTimeout(() => {
+        // Show iframe container after the delay
+        const iframeContainer = document.getElementById('iframe-container');
+        iframeContainer.style.display = 'block';
+      }, 5000); // 5000 milliseconds (5 seconds)
     });
   </script>
 </body>
