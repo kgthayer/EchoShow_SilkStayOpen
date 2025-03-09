@@ -1,10 +1,85 @@
-<script defer src="https://kgthayer.github.io/EchoShow_SilkStayOpen/keep.js"></script>
-<h1>Test Page</h1>
-<p><b id="rep" style="color: red;">TAP THE SCREEN</b></p> 
-<p>The Audio Element will be invisible on your page</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fullscreen Iframe Loader on Click</title>
+  <style>
+    /* Ensure the body and HTML elements take up the entire screen */
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
 
-<script>
-document.addEventListener("click", () => document.getElementById("rep").outerHTML = 'This page should now stay open')
-var SilkVisualMode = true
-var AlwaysUseSilk = true
-</script>
+    /* Fullscreen iframe */
+    #iframe-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none; /* Hide the iframe initially */
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Fullscreen background overlay */
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+      z-index: 999;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hidden iframe container to load another page -->
+  <div id="iframe-container">
+    <iframe id="fullscreenIframe" src="https://www.example.com"></iframe>
+  </div>
+
+  <!-- Overlay for waiting for user click -->
+  <div id="overlay"></div>
+
+  <script>
+    // Wait for 5 seconds before entering fullscreen
+    setTimeout(() => {
+      // Enter fullscreen mode
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+        document.documentElement.mozRequestFullScreen();
+      } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari
+        document.documentElement.webkitRequestFullscreen();
+      } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+        document.documentElement.msRequestFullscreen();
+      }
+
+      // Show the overlay to wait for a click
+      const overlay = document.getElementById('overlay');
+      overlay.style.display = 'block';
+
+    }, 5000); // 5000 milliseconds (5 seconds)
+
+    // Event listener to load iframe when user clicks anywhere
+    document.getElementById('overlay').addEventListener('click', function() {
+      // Hide overlay when clicked
+      const overlay = document.getElementById('overlay');
+      overlay.style.display = 'none';
+
+      // Show iframe container after the click
+      const iframeContainer = document.getElementById('iframe-container');
+      iframeContainer.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
