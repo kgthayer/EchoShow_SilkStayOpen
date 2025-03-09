@@ -1,9 +1,11 @@
+/* "https://dakboard.com/display/uuid/67ba2156-11c809-2d6a-69b2a271" */
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fullscreen Iframe Loader on Click</title>
+  <title>Fullscreen Window with Iframe Loader on Click</title>
   <style>
     /* Ensure the body and HTML elements take up the entire screen */
     html, body {
@@ -51,9 +53,9 @@
   <div id="overlay"></div>
 
   <script>
-    // Wait for 5 seconds before entering fullscreen
+    // Wait for 5 seconds before entering fullscreen mode
     setTimeout(() => {
-      // Enter fullscreen mode
+      // Enter fullscreen mode for the entire window
       if (document.documentElement.requestFullscreen) {
         document.documentElement.requestFullscreen();
       } else if (document.documentElement.mozRequestFullScreen) { // Firefox
